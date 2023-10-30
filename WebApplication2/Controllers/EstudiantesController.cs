@@ -6,13 +6,12 @@ namespace WebApplication2.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class StudianteControllers : ControllerBase
+    public class EstudiantesController : ControllerBase
     {
-
-        private readonly ILogger<StudianteControllers> _logger;
+        private readonly ILogger<EstudiantesController> _logger;
         private readonly AplicacionContexto _aplicacionContexto;
-        public StudianteControllers(
-            ILogger<StudianteControllers> logger, 
+        public EstudiantesController(
+            ILogger<EstudiantesController> logger, 
             AplicacionContexto aplicacionContexto)
         {
             _logger = logger;
@@ -29,32 +28,32 @@ namespace WebApplication2.Controllers
             return Ok(estudiante);
         }
         //READ: Obtener lista de estudiantes
-        [Route("/id")]
+        [Route("")]
         [HttpGet]
-        public IActionResult Get()
+        public IEnumerable<Estudiante> Get()
         {
-            return Ok(_aplicacionContexto.Estudiante.ToList());
-
+            return _aplicacionContexto.Estudiante.ToList();
         }
         //Update: Modificar estudiantes
-        [HttpPut(Name = "GetEstudiante")]
-        public IActionResult Put(
-            [FromBody] Estudiante estudiante)
+        [Route("/id")]
+        [HttpPut]
+        public IActionResult Put([FromBody] Estudiante estudiante)
         {
             _aplicacionContexto.Estudiante.Update(estudiante);
             _aplicacionContexto.SaveChanges();
             return Ok(estudiante);
         }
         //Delete: Eliminar estudiantes
-        [HttpDelete(Name = "GetEstudiante")]
-        public IActionResult Delete(int estudianteId)
+        [Route("/id")]
+        [HttpDelete]
+        public IActionResult Delete(int estudianteID)
         {
             _aplicacionContexto.Estudiante.Remove(
                 _aplicacionContexto.Estudiante.ToList()
-                .Where(x => x.idEstudiante == estudianteId)
+                .Where(x=>x.idEstudiante== estudianteID)
                 .FirstOrDefault());
             _aplicacionContexto.SaveChanges();
-            return Ok(estudianteId);
+            return Ok(estudianteID);
         }
     }
 }
