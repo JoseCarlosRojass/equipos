@@ -9,6 +9,6 @@ namespace WebApplication2.Context
             (DbContextOptions<AplicacionContexto> options)
             : base(options) { }
 
-        public DbSet<Departamento> Departamento { get; set; }
+        public DbSet<Estudiante> Estudiante { get; set; }
     }
 }
