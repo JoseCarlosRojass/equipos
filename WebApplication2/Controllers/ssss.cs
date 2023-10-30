@@ -25,7 +25,7 @@ namespace WebApplication2.Controllers
         //Create: Crear estudiantes
         [HttpPost(Name = "GetEstudiante")]
         public IActionResult Post(
-            [FromBody] Estudiante estudiante)
+            [FromBody] Departamento estudiante)
         {
             _aplicacionContexto.Add(estudiante);
             _aplicacionContexto.SaveChanges();
@@ -33,19 +33,19 @@ namespace WebApplication2.Controllers
         }
         //READ: Obtener lista de estudiantes
         [HttpGet(Name = "GetEstudiante")]
-        public IEnumerable<Estudiante> Get()
+        public IEnumerable<Departamento> Get()
         {
             return null;
         }
         //Update: Modificar estudiantes
         [HttpPut(Name = "GetEstudiante")]
-        public IEnumerable<Estudiante> Put()
+        public IEnumerable<Departamento> Put()
         {
             return null;
         }
         //Delete: Eliminar estudiantes
         [HttpDelete(Name = "GetEstudiante")]
-        public IEnumerable<Estudiante> Delete()
+        public IEnumerable<Departamento> Delete()
         {
             return null;
         }
