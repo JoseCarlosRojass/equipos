@@ -22,7 +22,7 @@ namespace WebApplication2.Controllers
         [Route("")]
         [HttpPost]
         public IActionResult Post(
-            [FromBody] Estudiante estudiante)
+            [FromBody] Departamento estudiante)
         {
             _aplicacionContexto.Estudiante.Add(estudiante);
             _aplicacionContexto.SaveChanges();
@@ -39,7 +39,7 @@ namespace WebApplication2.Controllers
         //Update: Modificar estudiantes
         [HttpPut(Name = "GetEstudiante")]
         public IActionResult Put(
-            [FromBody] Estudiante estudiante)
+            [FromBody] Departamento estudiante)
         {
             _aplicacionContexto.Estudiante.Update(estudiante);
             _aplicacionContexto.SaveChanges();
