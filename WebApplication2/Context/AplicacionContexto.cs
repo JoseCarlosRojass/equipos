@@ -10,5 +10,6 @@ namespace WebApplication2.Context
             : base(options) { }
 
         public DbSet<Estudiante> Estudiante { get; set; }
+        public DbSet<Salario> Salario { get; set; }
     }
 }
