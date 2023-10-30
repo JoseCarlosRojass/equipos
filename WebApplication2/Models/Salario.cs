@@ -6,7 +6,7 @@ namespace WebApplication2.Models
     {
         [Key]
         public string idSalario { get; set; }
-        public string salario { get; set; }
+        public float salario { get; set; }
         public string FechaInicio { get; set; }
     }
 }
